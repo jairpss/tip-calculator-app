@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+//Fonts
+$main-font: "Space Mono", monospace;
+
+// Colors
+$strong-cyan: hsl(172, 67%, 45%);
+$very-dark-cyan: hsl(183, 100%, 15%);
+$dark-grayish-cyan: hsl(186, 14%, 43%);
+$dark-grayish: hsl(184, 14%, 56%);
+$light-grayish-cyan: hsl(185, 41%, 84%);
+$light-grayish: hsl(189, 41%, 97%);
+$white: hsl(0, 0%, 100%);
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  font-family: $main-font;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@mixin input-style {
+  background-color: $light-grayish;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  color: $very-dark-cyan;
+  font-weight: 600;
+  text-align: right;
+  padding-right: 0.5rem;
+  background-image: url("./../images/icon-dollar.svg");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+
+  &::placeholder {
+    color: $dark-grayish;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 0.5rem;
+  }
+  &:focus {
+    border: 2px solid $strong-cyan;
+    outline: none;
+  }
+}
+
+.main {
+  background-color: $light-grayish-cyan;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+//Logo
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.calculator-main {
+  background-color: $white;
+  border-radius: 16px;
+  width: 75vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  -webkit-box-shadow: 0px 5px 18px 4px rgba(180, 219, 219, 0.4);
+  box-shadow: 0px 5px 18px 4px rgba(180, 219, 219, 0.4);
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 1rem;
+    .buttons-bill {
+      font-family: $main-font;
+      display: flex;
+      flex-direction: column;
+      p {
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: $very-dark-cyan;
+        margin-bottom: 0.4rem;
+        opacity: 0.9;
+      }
+      input {
+        @include input-style;
+      }
+    }
+
+    .tip-percent {
+      p {
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: $very-dark-cyan;
+        margin-bottom: 0.4rem;
+        margin-top: 0.4rem;
+        opacity: 0.9;
+      }
+      .tip-percent-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        input {
+          width: 110px;
+        }
+      }
+    }
+    .num-people {
+      font-family: $main-font;
+      display: flex;
+      flex-direction: column;
+      input {
+        @include input-style;
+        background-image: url("./../images/icon-person.svg");
+      }
+    }
+  }
+
+  .display {
+    background-color: $very-dark-cyan;
+    width: 50%;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+}
