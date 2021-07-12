@@ -160,12 +160,71 @@ html {
       grid-template-columns: repeat(3, 1fr);
   -ms-grid-rows: (1fr)[2];
       grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid button {
+  background-color: #00494d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid button:hover {
+  background-color: #26c0ab;
+  cursor: pointer;
 }
 
 .calculator-main .buttons .tip-percent .tip-percent-grid input {
   width: 110px;
+  background-color: #f4fafa;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  color: #00494d;
+  font-weight: 600;
+  text-align: right;
+  padding-right: 0.5rem;
+  background-image: url("./../images/icon-dollar.svg");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  background-image: none;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid input::-webkit-input-placeholder {
+  color: #7f9c9f;
+  font-weight: 600;
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid input:-ms-input-placeholder {
+  color: #7f9c9f;
+  font-weight: 600;
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid input::-ms-input-placeholder {
+  color: #7f9c9f;
+  font-weight: 600;
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid input::placeholder {
+  color: #7f9c9f;
+  font-weight: 600;
+  text-align: right;
+  padding-right: 0.5rem;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid input:focus {
+  border: 2px solid #26c0ab;
+  outline: none;
 }
 
 .calculator-main .buttons .num-people {
@@ -177,6 +236,15 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.calculator-main .buttons .num-people p {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #00494d;
+  margin-bottom: 0.4rem;
+  margin-top: 0.4rem;
+  opacity: 0.9;
 }
 
 .calculator-main .buttons .num-people input {

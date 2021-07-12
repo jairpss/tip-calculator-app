@@ -23,6 +23,7 @@ html {
   scroll-behavior: smooth;
 }
 
+//mixin input
 @mixin input-style {
   background-color: $light-grayish;
   border: 2px solid transparent;
@@ -113,10 +114,24 @@ html {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
+        grid-column-gap: 16px;
+        grid-row-gap: 16px;
+        button {
+          background-color: $very-dark-cyan;
+          color: $white;
+          border: none;
+          border-radius: 4px;
+          &:hover {
+            background-color: $strong-cyan;
+            cursor: pointer;
+          }
+        }
         input {
           width: 110px;
+          @include input-style;
+          background-image: none;
+          text-align: center;
+          padding: 0 1rem;
         }
       }
     }
@@ -124,6 +139,14 @@ html {
       font-family: $main-font;
       display: flex;
       flex-direction: column;
+      p {
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: $very-dark-cyan;
+        margin-bottom: 0.4rem;
+        margin-top: 0.4rem;
+        opacity: 0.9;
+      }
       input {
         @include input-style;
         background-image: url("./../images/icon-person.svg");
