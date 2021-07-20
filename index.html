@@ -8,11 +8,6 @@
   <link rel="stylesheet" href="./styles/style.css">
   <title>Frontend Mentor | Tip calculator app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
   <main class="main">
@@ -28,11 +23,11 @@
         <div class="tip-percent">
           <p>Select Tip %</p>
           <div class="tip-percent-grid">
-            <button>5%</button>
-            <button>10%</button>
-            <button>15%</button>
-            <button>25%</button>
-            <button>50%</button>
+            <button class="5p">5%</button>
+            <button class="10p">10%</button>
+            <button class="15p">15%</button>
+            <button class="25p">25%</button>
+            <button class="50p">50%</button>
             <input type="text" class="custom" placeholder="Custom" />
           </div>
         </div>
@@ -42,16 +37,22 @@
         </div>
       </div>
       <div class="display">
-        <div class="tip-amount">
-          <p>Tip Amount / person</p>
-          <label for="">$0.00</label>
-        </div>
-        <div class="total-person"
-          <p>Total / person</p>
-          <label for="">$0.00</label>
+        <div class="display-grid">
+            <div class="tip-amount">
+            <p>Tip Amount <br><small>/ person</small></p>
+          </div>
+          <div class="tip-amount_number">
+            <label for="">$0.00</label>
+          </div>
+          <div class="total-person">
+            <p>Total <br><small>/ person</small> </p>
+          </div>
+          <div class="total-person_number">
+            <label for="">$0.00</label>
+          </div>
         </div>
         <div class="btn-reset">
-          <button>RESET</button>
+          <button disabled="true">RESET</button>
         </div>  
       </div>
     </div>

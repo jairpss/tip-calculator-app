@@ -11,12 +11,14 @@ $dark-grayish: hsl(184, 14%, 56%);
 $light-grayish-cyan: hsl(185, 41%, 84%);
 $light-grayish: hsl(189, 41%, 97%);
 $white: hsl(0, 0%, 100%);
+$light-cyan: hsl(173, 61%, 77%);
 
 * {
   margin: 0;
   padding: 0;
   font-size: 24px;
   font-family: $main-font;
+  box-sizing: border-box;
 }
 
 html {
@@ -70,8 +72,8 @@ html {
 
 .calculator-main {
   background-color: $white;
-  border-radius: 16px;
-  width: 75vw;
+  border-radius: 20px;
+  width: 60vw;
   height: auto;
   display: flex;
   justify-content: center;
@@ -98,6 +100,7 @@ html {
       }
       input {
         @include input-style;
+        margin-bottom: 1rem;
       }
     }
 
@@ -116,22 +119,26 @@ html {
         grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 16px;
         grid-row-gap: 16px;
+        // justify-content: space-around;
         button {
           background-color: $very-dark-cyan;
           color: $white;
           border: none;
           border-radius: 4px;
+
           &:hover {
             background-color: $strong-cyan;
             cursor: pointer;
+            color: $very-dark-cyan;
+            font-weight: 600;
           }
         }
         input {
-          width: 110px;
+          width: 100%;
           @include input-style;
           background-image: none;
           text-align: center;
-          padding: 0 1rem;
+          padding: 0 0.2rem;
         }
       }
     }
@@ -144,12 +151,13 @@ html {
         font-weight: 600;
         color: $very-dark-cyan;
         margin-bottom: 0.4rem;
-        margin-top: 0.4rem;
+        margin-top: 1.3rem;
         opacity: 0.9;
       }
       input {
         @include input-style;
         background-image: url("./../images/icon-person.svg");
+        margin-bottom: 0.5rem;
       }
     }
   }
@@ -157,10 +165,50 @@ html {
   .display {
     background-color: $very-dark-cyan;
     width: 50%;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+    margin: 0 1rem;
+    padding: 1.5rem 1rem;
+    border-radius: 14px;
+    .display-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 16px;
+      grid-row-gap: 16px;
+      align-items: start;
+      p {
+        font-size: 0.6rem;
+        color: $light-grayish;
+        font-weight: 600;
+        small {
+          font-size: 0.45rem;
+          color: $dark-grayish;
+          font-weight: 600;
+        }
+      }
+      label {
+        text-align: right;
+        color: $strong-cyan;
+        font-weight: 600;
+        font-size: 1.7rem;
+        justify-self: end;
+      }
+    }
+
+    .btn-reset {
+      width: 100%;
+      button {
+        width: 100%;
+        border-radius: 4px;
+        border: none;
+        background-color: $strong-cyan;
+        font-weight: 600;
+        color: $very-dark-cyan;
+        padding: 0.3rem 0;
+        margin-top: 2.5rem;
+        &:disabled {
+          opacity: 0.1;
+        }
+      }
+    }
   }
 }
