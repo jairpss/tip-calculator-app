@@ -12,6 +12,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  caret-color: #00494d;
+  -moz-appearance: textfield;
+}
+
 .main {
   background-color: #c5e4e7;
   width: 100vw;
@@ -60,10 +71,6 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -webkit-box-shadow: 0px 5px 18px 4px rgba(180, 219, 219, 0.4);
   box-shadow: 0px 5px 18px 4px rgba(180, 219, 219, 0.4);
 }
@@ -232,6 +239,22 @@ html {
   outline: none;
 }
 
+.calculator-main .buttons .tip-percent .tip-percent-grid input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid input:-ms-input-placeholder {
+  text-align: center;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid input::-ms-input-placeholder {
+  text-align: center;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid input::placeholder {
+  text-align: center;
+}
+
 .calculator-main .buttons .num-people {
   font-family: "Space Mono", monospace;
   display: -webkit-box;
@@ -304,23 +327,52 @@ html {
 .calculator-main .display {
   background-color: #00494d;
   width: 50%;
-  margin: 0 1rem;
+  margin: 1rem 1rem;
   padding: 1.5rem 1rem;
   border-radius: 14px;
 }
 
 .calculator-main .display .display-grid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
-  -ms-grid-rows: (1fr)[2];
-      grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 16px;
-  grid-row-gap: 16px;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.calculator-main .display .display-grid .amount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.calculator-main .display .display-grid .person {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .calculator-main .display .display-grid p {
@@ -336,12 +388,9 @@ html {
 }
 
 .calculator-main .display .display-grid label {
-  text-align: right;
   color: #26c0ab;
   font-weight: 600;
   font-size: 1.7rem;
-  -ms-grid-column-align: end;
-      justify-self: end;
 }
 
 .calculator-main .display .btn-reset {
@@ -359,7 +408,31 @@ html {
   margin-top: 2.5rem;
 }
 
+.calculator-main .display .btn-reset button:hover, .calculator-main .display .btn-reset button:active {
+  color: #00494d;
+  background: #a1e8e0;
+  cursor: pointer;
+}
+
 .calculator-main .display .btn-reset button:disabled {
   opacity: 0.1;
+}
+
+@media all and (min-width: 1280px) {
+  .calculator-main {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+@media all and (max-width: 1280px) {
+  .calculator-main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 /*# sourceMappingURL=style.css.map */

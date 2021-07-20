@@ -18,7 +18,7 @@
       <div class="buttons">
         <div class="buttons-bill">
           <p>Bill</p>
-          <input type="text" class="bill" placeholder="0" />
+          <input type="number" class="bill" placeholder="0" min="0" />
         </div>
         <div class="tip-percent">
           <p>Select Tip %</p>
@@ -28,27 +28,31 @@
             <button class="15p">15%</button>
             <button class="25p">25%</button>
             <button class="50p">50%</button>
-            <input type="text" class="custom" placeholder="Custom" />
+            <input type="number" class="custom" placeholder="Custom" min="0"/>
           </div>
         </div>
         <div class="num-people">
           <p>Number of people</p>
-          <input type="text" class="bill" placeholder="0" />
+          <input type="number" class="bill" placeholder="0" min="0"/>
         </div>
       </div>
       <div class="display">
         <div class="display-grid">
+          <div class="amount">
             <div class="tip-amount">
-            <p>Tip Amount <br><small>/ person</small></p>
+              <p>Tip Amount <br><small>/ person</small></p>
+            </div>
+            <div class="tip-amount_number">
+              <label for="">$0.00</label>
+            </div>
           </div>
-          <div class="tip-amount_number">
-            <label for="">$0.00</label>
-          </div>
-          <div class="total-person">
-            <p>Total <br><small>/ person</small> </p>
-          </div>
-          <div class="total-person_number">
-            <label for="">$0.00</label>
+          <div class="person">
+            <div class="total-person">
+              <p>Total <br><small>/ person</small> </p>
+            </div>
+            <div class="total-person_number">
+              <label for="">$0.00</label>
+            </div>
           </div>
         </div>
         <div class="btn-reset">

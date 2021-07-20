@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+//Fonts
+$main-font: "Space Mono", monospace;
+
+// Colors
+$strong-cyan: hsl(172, 67%, 45%);
+$very-dark-cyan: hsl(183, 100%, 15%);
+$dark-grayish-cyan: hsl(186, 14%, 43%);
+$dark-grayish: hsl(184, 14%, 56%);
+$light-grayish-cyan: hsl(185, 41%, 84%);
+$light-grayish: hsl(189, 41%, 97%);
+$white: hsl(0, 0%, 100%);
+$light-cyan: hsl(173, 61%, 77%);
+$error-msg: hsl(13, 32%, 57%);
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  font-family: $main-font;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  caret-color: $very-dark-cyan;
+  -moz-appearance: textfield;
+}
+//mixin input
+@mixin input-style {
+  background-color: $light-grayish;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  color: $very-dark-cyan;
+  font-weight: 600;
+  text-align: right;
+  padding-right: 0.5rem;
+  background-image: url("./../images/icon-dollar.svg");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+
+  &::placeholder {
+    color: $dark-grayish;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 0.5rem;
+  }
+  &:focus {
+    border: 2px solid $strong-cyan;
+    outline: none;
+  }
+}
