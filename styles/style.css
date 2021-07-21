@@ -16,6 +16,7 @@ html {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  margin: 0;
 }
 
 input[type="number"] {
@@ -174,20 +175,6 @@ input[type="number"] {
   grid-row-gap: 16px;
 }
 
-.calculator-main .buttons .tip-percent .tip-percent-grid button {
-  background-color: #00494d;
-  color: white;
-  border: none;
-  border-radius: 4px;
-}
-
-.calculator-main .buttons .tip-percent .tip-percent-grid button:hover {
-  background-color: #26c0ab;
-  cursor: pointer;
-  color: #00494d;
-  font-weight: 600;
-}
-
 .calculator-main .buttons .tip-percent .tip-percent-grid input {
   width: 100%;
   background-color: #f4fafa;
@@ -253,6 +240,42 @@ input[type="number"] {
 
 .calculator-main .buttons .tip-percent .tip-percent-grid input::placeholder {
   text-align: center;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid input[type="radio"] {
+  border: none;
+  width: 0px;
+  opacity: 0;
+  outline: none;
+  position: fixed;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid input[type="radio"]:hover + label,
+.calculator-main .buttons .tip-percent .tip-percent-grid input[type="radio"]:focus + label,
+.calculator-main .buttons .tip-percent .tip-percent-grid input[type="radio"]:focus-visible + label,
+.calculator-main .buttons .tip-percent .tip-percent-grid input[type="radio"]:focus-within + label,
+.calculator-main .buttons .tip-percent .tip-percent-grid input[type="radio"]:active + label {
+  color: #00494d;
+  background: #a1e8e0;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid input[type="radio"]:checked + label {
+  color: #00494d;
+  background: #26c0ab;
+}
+
+.calculator-main .buttons .tip-percent .tip-percent-grid label {
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.3rem 0.7rem;
+  color: #f4fafa;
+  background: #00494d;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 700;
 }
 
 .calculator-main .buttons .num-people {
