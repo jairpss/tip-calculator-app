@@ -101,39 +101,6 @@
           background-color: $strong-cyan;
           color: $very-dark-cyan;
         }
-        // & input[type="radio"] {
-        //   border: none;
-        //   width: 0px;
-        //   opacity: 0;
-        //   outline: none;
-        //   position: fixed;
-        //   &:hover + label,
-        //   &:focus + label,
-        //   &:focus-visible + label,
-        //   &:focus-within + label,
-        //   &:active + label {
-        //     color: $very-dark-cyan;
-        //     background: $light-cyan;
-        //   }
-        //   &:checked + label {
-        //     color: $very-dark-cyan;
-        //     background: $strong-cyan;
-        //   }
-        // }
-
-        // & label {
-        //   display: inline-block;
-        //   font-size: 1rem;
-        //   padding: 0.3rem 0.7rem;
-        //   color: $light-grayish;
-        //   background: $very-dark-cyan;
-        //   border-radius: 4px;
-        //   width: 100%;
-        //   height: 100%;
-        //   text-align: center;
-        //   cursor: pointer;
-        //   font-weight: 700;
-        // }
       }
     }
     .num-people {
@@ -343,5 +310,20 @@
     button {
       margin-top: 1.5rem;
     }
+  }
+}
+
+@keyframes show-err {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

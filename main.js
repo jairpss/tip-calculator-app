@@ -1,31 +1,117 @@
-let tip, bill, numPeople;
+const bill = document.getElementById('input-bill');
+const tipBtns = document.querySelectorAll('.tip');
+const tipCustom = document.getElementById('input-tip');
+const people = document.getElementById('input-people');
+const errorMsg = document.querySelector('.error-msg');
+const results = document.querySelectorAll('.value');
+const resetBtn = document.querySelector('.reset');
 
-let billInput = document.querySelector('.input-bill');
-let peopleInput = document.querySelector('.input-people');
-let tipOptions = document.querySelector(".tip-percent-grid").querySelectorAll("label");
-let tipCustom  = document.querySelector(".custom");
-let resetBtn = document.querySelector("button");
 
-let tipAmount = document.querySelector(".text-tip-amount");
-let total = document.querySelector(".text-total");
+let billValue = 0.0; //default value
+let tipValue = 0.15; //default value -> 15% button is active
+let peopleValue = 1; 
 
-//Logical operations for the tip
-const calculate_tip = (Bill, Tip, PeopleNumber) => {
-    let tip1, tip2;
-    tip1 = Math.round(((Number(Bill) * (Number(Tip) / 100)) / Number(PeopleNumber)) * 100) / 100;
-    tip2 = Math.round(((Number(Bill) / Number(PeopleNumber)) + tip1) * 100) / 100;
-    tipAmount.innerText = `$${tip1}`;
-    total.innerText = `$${total}`
+function validateFloat(s){
+    var rgx = /^[0-9]*\.?[0-9]*$/;
+    return s.match(rgx);
 }
 
-//Reset all radio inputs to false
-const radio_inputs = () => {
-    document.querySelectorAll("[type='radio']").forEach(elem => elem.checked = false);
+function validateInt(s){
+    var rgx = /^[0-9]*$/;
+    return s.match(rgx);
 }
 
+const setBillValue = bill.addEventListener('input', () => {
+    if (bill.value.includes(',')){
+        bill.value = bill.value.replace(',', '.');
+    }
+
+    if(!validateFloat(bill.value)){
+        bill.value = bill.value.substring(0, bill.value.length-1);
+    }
+
+    billValue = parseFloat(bill.value);
+
+    calculateTip();
+});
+
+
+tipBtns.forEach(btn => {
+    btn.addEventListener('click', (event) => {
+        tipBtns.forEach(btn => {
+            //clear active state
+            btn.classList.remove('btn-active');
+    
+            //set active state 
+            if(event.target.innerHTML == btn.innerHTML){
+                btn.classList.add('btn-active');
+                tipValue = parseFloat(btn.innerHTML)/100;
+            }
+        });
+    
+        //clear custom tip
+        tipCustom.value = '';
+    
+        calculateTip();
+    });
+});
+
+tipCustom.addEventListener('input', () => {
+    if(!validateInt(tipCustom.value)){
+        tipCustom.value = tipCustom.value.substring(0, tipCustom.value.length-1);
+    }
+    
+    tipValue = parseFloat(tipCustom.value/100);
+
+    //remove active state from buttons
+    tipBtns.forEach(btn => {
+        btn.classList.remove('btn-active');
+    });
+
+    if(tipCustom.value !== ''){
+        calculateTip();
+    }
+});
+
+const setPeopleValue = people.addEventListener('input', () => {
+    if(!validateInt(people.value)){
+        people.value = people.value.substring(0, people.value.length-1);
+    }
+
+    peopleValue = parseFloat(people.value);
+
+    if(peopleValue <= 0){
+        errorMsg.classList.add('show-error-msg');
+        setTimeout(function(){
+            errorMsg.classList.remove('show-error-msg');
+        }, 3000);
+    }
+
+    calculateTip();
+});
+
+function calculateTip(){
+    if (peopleValue >=1 ){
+        let tipAmount = billValue * tipValue / peopleValue;
+        let total = billValue * (tipValue + 1) / peopleValue;
+        results[0].innerHTML = '$' + tipAmount.toFixed(2);
+        results[1].innerHTML = '$' + total.toFixed(2);
+    }
+}
+
+function resetBtnActive(){
+    if ()
+}
 //Reset button
-resetBtn.addEventListener("click", () => {
-    bill.value = '0.0';
-    resetBtn.disabled = true ;
+resetBtn.addEventListener('click', () => {
+    bill.value = '0';
+    setBillValue();
+
+    tipBtns[2].click();
+
+    people.value = '1';
+    setPeopleValue();
+
+    resetBtn.disabled = false;
 });
 
