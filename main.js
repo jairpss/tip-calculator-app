@@ -9,7 +9,7 @@ let resetBtn = document.querySelector("button");
 let tipAmount = document.querySelector(".text-tip-amount");
 let total = document.querySelector(".text-total");
 
-//Logical operations for the tips
+//Logical operations for the tip
 const calculate_tip = (Bill, Tip, PeopleNumber) => {
     let tip1, tip2;
     tip1 = Math.round(((Number(Bill) * (Number(Tip) / 100)) / Number(PeopleNumber)) * 100) / 100;
@@ -25,9 +25,7 @@ const radio_inputs = () => {
 
 //Reset button
 resetBtn.addEventListener("click", () => {
-    bill, tip, numPeople = 0;
-    [billInput , peopleInput ,tipCustom].map( elem => elem.value = " ");
-    [tipAmount,tolal].map( elem => elem.innerText = "$0.00")
-    radio_inputs()
-    resetBtn.disabled = true 
+    bill.value = '0.0';
+    resetBtn.disabled = true ;
 });
+
