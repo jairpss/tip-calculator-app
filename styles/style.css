@@ -292,8 +292,9 @@ input[type="number"] {
 .calculator-main .buttons .num-people .error-msg {
   color: #b47d6e;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 0.5rem;
   opacity: 0;
+  margin-bottom: 0.2rem;
 }
 
 .calculator-main .buttons .num-people .show-error-msg {
@@ -437,10 +438,6 @@ input[type="number"] {
   color: #00494d;
   background: #a1e8e0;
   cursor: pointer;
-}
-
-.calculator-main .display .btn-reset button:disabled {
-  opacity: 0.1;
 }
 
 @media all and (min-width: 1280px) {

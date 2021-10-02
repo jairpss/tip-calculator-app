@@ -118,8 +118,9 @@
       .error-msg {
         color: $error-msg;
         font-weight: 700;
-        font-size: 1.5rem;
+        font-size: 0.5rem;
         opacity: 0;
+        margin-bottom: 0.2rem;
       }
 
       .show-error-msg {
@@ -188,9 +189,6 @@
           color: $very-dark-cyan;
           background: $light-cyan;
           cursor: pointer;
-        }
-        &:disabled {
-          opacity: 0.1;
         }
       }
     }

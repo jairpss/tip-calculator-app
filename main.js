@@ -6,10 +6,13 @@ const errorMsg = document.querySelector('.error-msg');
 const results = document.querySelectorAll('.value');
 const resetBtn = document.querySelector('.reset');
 
+resetBtn.addEventListener('click', reset);
 
 let billValue = 0.0; //default value
 let tipValue = 0.15; //default value -> 15% button is active
 let peopleValue = 1; 
+
+console.log(bill.value);
 
 function validateFloat(s){
     var rgx = /^[0-9]*\.?[0-9]*$/;
@@ -33,6 +36,7 @@ const setBillValue = bill.addEventListener('input', () => {
     billValue = parseFloat(bill.value);
 
     calculateTip();
+    console.log(bill.value);
 });
 
 
@@ -99,19 +103,15 @@ function calculateTip(){
     }
 }
 
-function resetBtnActive(){
-    if ()
-}
+
 //Reset button
-resetBtn.addEventListener('click', () => {
-    bill.value = '0';
+function reset(){
+    bill.value = '';
     setBillValue();
 
     tipBtns[2].click();
 
     people.value = '1';
     setPeopleValue();
-
-    resetBtn.disabled = false;
-});
+}
 
