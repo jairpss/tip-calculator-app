@@ -108,12 +108,15 @@ function calculateTip(){
 
 //Reset button
 function reset(){
-    bill.value = '0';
+    bill.value = '';
     setBillValue();
 
     tipBtns[2].click();
 
-    people.value = '1';
+    people.value = '';
     setPeopleValue();
+
+    results[0].innerHTML = '$0.00';
+    results[1].innerHTML = '$0.00';
 }
 
